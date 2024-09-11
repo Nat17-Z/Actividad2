@@ -18,17 +18,17 @@ snake = [vector(10, 0)]
 aim = vector(0, -10)
 
 def move_food():
-    "Move food randomly one step and ensure it stays within boundaries."
+    "Mover la comida"
     directions = [vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)]
     move_direction = directions[randrange(4)]
     food.move(move_direction)
 
-    # Ensure food stays within the window boundaries
+    # Asegurar que no se salga de la ventana
     if not inside(food):
         food.move(-move_direction)
 
     square(food.x, food.y, 9, 'green')
-    ontimer(move_food, 1000)  # Move the food every second
+    ontimer(move_food, 1000)  # Mover cada segundo
 
 def change(x, y):
     """Change snake direction."""
